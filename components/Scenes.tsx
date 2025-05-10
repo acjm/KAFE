@@ -33,7 +33,7 @@ export default function Scenes() {
     <HydrationSuppressor>
       <section id="scenes" className="py-24 md:py-32 bg-secondary">
         <div className="container mx-auto px-6 md:px-12">
-          <h2 className="section-title" data-number="I">
+          <h2 className="section-title text-3xl">
             <span>Scenes</span>
           </h2>
           

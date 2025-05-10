@@ -42,7 +42,7 @@ export default function Soundtrack() {
   return (
     <section id="soundtrack" className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6 md:px-12">
-        <h2 className="section-title">Soundtrack</h2>
+        <h2 className="section-title text-3xl">Soundtrack</h2>
         <p className="text-xl md:text-2xl mb-20 max-w-3xl italic">
           "What you hear when the world fades."
         </p>

@@ -11,7 +11,7 @@ export default function Origins() {
       country: "Ethiopia",
       region: "Yirgacheffe",
       description: "Floral. Light. Grounded in history.",
-      image: "https://images.pexels.com/photos/585750/pexels-photo-585750.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      image: "https://plus.unsplash.com/premium_photo-1670758010444-f0ead2419cc8?q=80&w=1974&auto=format&fit=crop"
     },
     {
       country: "Colombia",
@@ -31,9 +31,9 @@ export default function Origins() {
     <HydrationSuppressor>
       <section id="origins" className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-6 md:px-12">
-          <h2 className="section-title">Origins</h2>
-          <p className="text-xl md:text-2xl mb-20 max-w-xl">
-            Every bean has a past. Here are the ones we trust.
+          <h2 className="section-title text-3xl">Origins</h2>
+          <p className="text-xl md:text-2xl mb-20 max-w-3xl italic">            
+          "Every bean has a past. Here are the ones we trust".
           </p>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16">

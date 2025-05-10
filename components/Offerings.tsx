@@ -48,7 +48,7 @@ export default function Offerings() {
       />
       
       <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <h2 className="section-title text-white" data-number="II">
+        <h2 className="section-title text-white text-3xl">
           <span>The Offerings</span>
         </h2>
         <p className="text-xl md:text-2xl mb-20 max-w-3xl italic text-white/90">

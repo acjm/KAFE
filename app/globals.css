@@ -18,7 +18,7 @@ html {
 
 @layer base {
   * {
-    @apply border-border/30;
+    @apply border-border/10;
   }
   
   body {
@@ -83,16 +83,23 @@ html {
   }
   
   .section-title {
-    @apply text-xl md:text-2xl uppercase tracking-widest font-light mb-12 md:mb-16 relative pl-16 md:pl-20;
+    @apply text-xl md:text-2xl uppercase tracking-widest font-light mb-12 md:mb-16 relative pl-12 md:pl-[55px];
     letter-spacing: 0.15em;
   }
 
   .section-title::before {
     content: attr(data-number);
-    @apply absolute left-0 top-1/2 -translate-y-1/2 text-4xl md:text-5xl font-serif text-muted-foreground opacity-40;
+    @apply absolute left-0 top-1/2 -translate-y-1/2 text-4xl md:text-5xl font-serif text-[#1b1b1b] opacity-40;
     font-family: "Times New Roman", serif;
     line-height: 1;
     z-index: 0;
+  }
+
+  /* Special styling for dark sections */
+  .bg-secondary .section-title::before,
+  .bg-black .section-title::before,
+  .bg-dark .section-title::before {
+    @apply text-white opacity-40;
   }
 
   .section-title > span {
@@ -112,7 +119,7 @@ html {
   }
 
   .border-light {
-    @apply border-border/20;
+    @apply border-border/5;
   }
 }
 

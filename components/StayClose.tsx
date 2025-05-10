@@ -1,12 +1,12 @@
 export default function StayClose() {
   return (
     <section id="stay-close" className="py-24 md:py-32 bg-secondary">
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl text-center">
-        <h2 className="section-title">Stay Close.</h2>
+      <div className="container mx-auto  max-w-4xl text-left">
+        <h2 className="section-title text-3xl">Stay Close.</h2>
         
         <div className="mb-20">
-          <p className="text-xl md:text-2xl mb-6 font-medium">
-            KAFE is brewing.
+          <p className="text-xl md:text-2xl mb-6 font-normal text-italic">
+            KAFE is brewing...
           </p>
         </div>
         
