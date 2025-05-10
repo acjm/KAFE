@@ -7,20 +7,23 @@
   --background-rgb: 227, 225, 221;
   --accent-rgb: 120, 90, 70;
   --muted-rgb: 120, 120, 120;
-  --border-rgb: 200, 200, 200;
+  --border-rgb: 213, 208, 208;
   
   --cursor-size: 20px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 @layer base {
   * {
-    @apply border-border;
+    @apply border-border/30;
   }
   
   body {
     @apply bg-[#e3e1dd] text-[#1b1b1b];
     font-feature-settings: "salt" on, "ss01" on, "ss02" on;
-    cursor: none;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -28,19 +31,19 @@
   }
   
   h1 {
-    @apply text-4xl sm:text-5xl md:text-6xl;
+    @apply text-3xl sm:text-4xl md:text-5xl;
   }
   
   h2 {
-    @apply text-3xl sm:text-4xl;
-  }
-  
-  h3 {
     @apply text-2xl sm:text-3xl;
   }
   
+  h3 {
+    @apply text-xl sm:text-2xl;
+  }
+  
   p {
-    @apply leading-relaxed;
+    @apply text-base leading-relaxed;
   }
   
   a, button {
@@ -55,7 +58,7 @@
 
 @layer components {
   .container-section {
-    @apply max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32;
+    @apply max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24;
   }
   
   .text-balance {
@@ -76,15 +79,40 @@
   }
   
   .heading-xl {
-    @apply text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter mb-12;
+    @apply text-4xl md:text-6xl lg:text-7xl font-medium tracking-tighter mb-8;
   }
   
   .section-title {
-    @apply text-lg md:text-xl uppercase tracking-widest font-light mb-16 md:mb-20;
+    @apply text-xl md:text-2xl uppercase tracking-widest font-light mb-12 md:mb-16 relative pl-16 md:pl-20;
+    letter-spacing: 0.15em;
+  }
+
+  .section-title::before {
+    content: attr(data-number);
+    @apply absolute left-0 top-1/2 -translate-y-1/2 text-4xl md:text-5xl font-serif text-muted-foreground opacity-40;
+    font-family: "Times New Roman", serif;
+    line-height: 1;
+    z-index: 0;
+  }
+
+  .section-title > span {
+    @apply relative z-10;
   }
   
   .section-number {
     @apply text-sm opacity-50 mr-2 font-light;
+  }
+
+  .highlight {
+    @apply font-semibold text-foreground;
+  }
+
+  .muted-text {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .border-light {
+    @apply border-border/20;
   }
 }
 
@@ -108,5 +136,9 @@
   .smooth-transform {
     transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
+  }
+
+  .scroll-smooth {
+    scroll-behavior: smooth;
   }
 }

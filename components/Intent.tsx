@@ -15,11 +15,10 @@ export default function Intent() {
               to create without pressure, to taste without rushing.
             </p>
             
-            <p className="text-xl md:text-2xl font-medium">
-              KAFE is that space.
+            <p className="text-xl md:text-2xl font-normal">
+              <span className='font-medium'>KAFE</span> is that space.
             </p>
             
-            <div className="py-4" />
             
             <p className="text-xl md:text-2xl font-light">
               A quiet ritual.<br />
@@ -27,7 +26,6 @@ export default function Intent() {
               A rebellion against the fast, the fake, the loud.
             </p>
             
-            <div className="py-4" />
             
             <p className="text-xl md:text-2xl font-light">
               I don't roast the beans.<br />

@@ -32,7 +32,7 @@ export default function Origins() {
       <section id="origins" className="py-24 md:py-32 bg-background">
         <div className="container mx-auto px-6 md:px-12">
           <h2 className="section-title">Origins</h2>
-          <p className="text-xl md:text-2xl mb-20 max-w-3xl">
+          <p className="text-xl md:text-2xl mb-20 max-w-xl">
             Every bean has a past. Here are the ones we trust.
           </p>
           

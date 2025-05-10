@@ -19,6 +19,25 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    
+    if (element) {
+      const headerOffset = 80;
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    
+    setIsOpen(false);
+  };
   
   const navLinks = [
     { name: 'Intent', href: '#intent' },
@@ -48,13 +67,14 @@ export default function Navigation() {
         
         <nav className="hidden md:flex space-x-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
               href={link.href}
-              className="text-sm uppercase tracking-wider transition-all duration-500 hover:opacity-70 hover:scale-105"
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-sm uppercase tracking-wider transition-all duration-500 hover:opacity-70 hover:scale-105 cursor-pointer"
             >
               {link.name}
-            </Link>
+            </a>
           ))}
         </nav>
         
@@ -80,14 +100,14 @@ export default function Navigation() {
       >
         <nav className="flex flex-col space-y-8 items-center">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
               href={link.href}
-              className="text-xl uppercase tracking-wider transition-all duration-500 hover:opacity-70 hover:scale-105"
-              onClick={() => setIsOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
+              className="text-xl uppercase tracking-wider transition-all duration-500 hover:opacity-70 hover:scale-105 cursor-pointer"
             >
               {link.name}
-            </Link>
+            </a>
           ))}
         </nav>
       </div>
