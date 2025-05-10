@@ -1,0 +1,90 @@
+"use client";
+
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
+import { cn } from '@/lib/utils';
+
+export default function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  
+  const navLinks = [
+    { name: 'Intent', href: '#intent' },
+    { name: 'Scenes', href: '#scenes' },
+    { name: 'Origins', href: '#origins' },
+    { name: 'Offerings', href: '#offerings' },
+    { name: 'Soundtrack', href: '#soundtrack' },
+    { name: 'Contact', href: '#stay-close' },
+  ];
+  
+  return (
+    <header className={cn(
+      "fixed top-0 w-full z-50 transition-all duration-700",
+      isScrolled ? "bg-[#e3e1dd]/80 backdrop-blur-md py-3" : "bg-transparent py-6"
+    )}>
+      <div className="container mx-auto px-6 flex justify-between items-center">
+        <Link 
+          href="/" 
+          className="text-2xl font-medium transition-transform duration-500 hover:scale-105"
+        >
+          kafe.
+        </Link>
+        
+        <nav className="hidden md:flex space-x-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-sm uppercase tracking-wider transition-all duration-500 hover:opacity-70 hover:scale-105"
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+        
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden transition-transform duration-300 hover:scale-110"
+          aria-label="Toggle menu"
+        >
+          {isOpen ? (
+            <X className="w-6 h-6" />
+          ) : (
+            <Menu className="w-6 h-6" />
+          )}
+        </button>
+      </div>
+      
+      {/* Mobile menu */}
+      <div
+        className={cn(
+          "fixed inset-0 bg-[#e3e1dd] flex flex-col justify-center items-center md:hidden transition-all duration-500",
+          isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        )}
+      >
+        <nav className="flex flex-col space-y-8 items-center">
+          {navLinks.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className="text-xl uppercase tracking-wider transition-all duration-500 hover:opacity-70 hover:scale-105"
+              onClick={() => setIsOpen(false)}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+      </div>
+    </header>
+  );
+}

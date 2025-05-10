@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 27, 27, 27;
+  --background-rgb: 227, 225, 221;
+  --accent-rgb: 120, 90, 70;
+  --muted-rgb: 120, 120, 120;
+  --border-rgb: 200, 200, 200;
+  
+  --cursor-size: 20px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-[#e3e1dd] text-[#1b1b1b];
+    font-feature-settings: "salt" on, "ss01" on, "ss02" on;
+    cursor: none;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-medium tracking-tight;
+  }
+  
+  h1 {
+    @apply text-4xl sm:text-5xl md:text-6xl;
+  }
+  
+  h2 {
+    @apply text-3xl sm:text-4xl;
+  }
+  
+  h3 {
+    @apply text-2xl sm:text-3xl;
+  }
+  
+  p {
+    @apply leading-relaxed;
+  }
+  
+  a, button {
+    @apply hover:opacity-70 transition-all duration-500 ease-out;
+    transition-property: opacity, transform;
+  }
+
+  a:hover, button:hover {
+    transform: scale(1.02);
+  }
+}
+
+@layer components {
+  .container-section {
+    @apply max-w-7xl mx-auto px-6 md:px-12 py-24 md:py-32;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .fade-in {
+    @apply opacity-0 translate-y-8 transition-all duration-1000 ease-out;
+    will-change: transform, opacity;
+  }
+  
+  .fade-in.appear {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .parallax-section {
+    @apply relative overflow-hidden;
+  }
+  
+  .heading-xl {
+    @apply text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter mb-12;
+  }
+  
+  .section-title {
+    @apply text-lg md:text-xl uppercase tracking-widest font-light mb-16 md:mb-20;
+  }
+  
+  .section-number {
+    @apply text-sm opacity-50 mr-2 font-light;
+  }
+}
+
+@layer utilities {
+  .text-underline {
+    background-image: linear-gradient(
+      to right,
+      rgb(var(--foreground-rgb)) 0%,
+      rgb(var(--foreground-rgb)) 100%
+    );
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 1px;
+    transition: background-size 0.3s;
+  }
+  
+  .text-underline:hover {
+    background-size: 0% 1px;
+  }
+
+  .smooth-transform {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+}
