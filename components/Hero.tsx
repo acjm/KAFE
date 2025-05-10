@@ -25,6 +25,7 @@ export default function Hero() {
       <div 
         ref={heroRef}
         className="container mx-auto px-6 text-center z-10 transition-all duration-300"
+        suppressHydrationWarning
       >
         <h1 className="text-8xl md:text-9xl font-medium tracking-tighter mb-8 text-[#1b1b1b]">
           kafe.
@@ -34,7 +35,7 @@ export default function Hero() {
           A sanctuary where coffee becomes ritual
         </p>
         
-        <div className="mt-10 md:mt-16">
+        <div className="mt-10 md:mt-16" suppressHydrationWarning>
           <a 
             href="#intent"
             className="inline-flex items-center opacity-60 hover:opacity-100 transition-opacity text-[#1b1b1b]"

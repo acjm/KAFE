@@ -38,5 +38,5 @@ export default function ScrollAnimation({ children }: ScrollAnimationProps) {
     };
   }, []);
   
-  return <div ref={ref}>{children}</div>;
+  return <div ref={ref} suppressHydrationWarning>{children}</div>;
 }

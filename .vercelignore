@@ -1,0 +1,15 @@
+.git
+node_modules
+.next
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+README.md
+.gitignore
+.eslintrc.json
+.prettierrc
+.vscode
+.idea
+*.log 

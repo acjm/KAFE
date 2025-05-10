@@ -8,8 +8,10 @@ import { cn } from '@/lib/utils';
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   
   useEffect(() => {
+    setIsMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -26,6 +28,10 @@ export default function Navigation() {
     { name: 'Soundtrack', href: '#soundtrack' },
     { name: 'Contact', href: '#stay-close' },
   ];
+  
+  if (!isMounted) {
+    return null;
+  }
   
   return (
     <header className={cn(
